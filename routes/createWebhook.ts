@@ -8,6 +8,7 @@ createWebhook.get("/create", async (req, res) => {
     network: Network.ETH_MAINNET,
   });
 
+  res.status(200).json({ response: "test" });
   //   const createWh = await alchemy.notify.createWebhook(
   //     "https://dashboard.alchemy.com/api/create-webhook",
   //     WebhookType.ADDRESS_ACTIVITY,
