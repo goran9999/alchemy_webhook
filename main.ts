@@ -10,6 +10,6 @@ app.get("/webhook", createWebhook);
 
 app.post("/process", receiveData);
 
-app.listen(9900, async () => {
+app.listen(process.env.PORT, async () => {
   console.log("Server listening...");
 });
