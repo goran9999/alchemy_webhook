@@ -4,7 +4,7 @@ export const createWebhook = Router();
 
 createWebhook.get("/create", async (req, res) => {
   const alchemy = new Alchemy({
-    authToken: "xMfU2ggBQQKEAm8U-YPakei8hJ_ed8Yb",
+    authToken: process.env.ALCHEMY_TOKEN!,
     network: Network.ETH_MAINNET,
   });
 
