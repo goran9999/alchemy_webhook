@@ -8,9 +8,9 @@ const app = Express();
 
 app.use(bodyParser.json());
 
-app.get("/webhook", createWebhook);
+app.use("/webhook", createWebhook);
 
-app.post("/process", receiveData);
+app.use("/process", receiveData);
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
