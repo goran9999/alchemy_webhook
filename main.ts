@@ -10,6 +10,10 @@ app.get("/webhook", createWebhook);
 
 app.post("/process", receiveData);
 
-app.listen(process.env.PORT, async () => {
+app.use((err, req, res) => {
+  console.log("Not found");
+});
+
+app.listen(Number(process.env.PORT), async () => {
   console.log("Server listening...");
 });
