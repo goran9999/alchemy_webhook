@@ -4,6 +4,11 @@ import { createWebhook } from "./routes/createWebhook";
 import { receiveData } from "./routes/receiveData";
 import express from "express";
 import cors from "cors";
+import * as dotenv from "dotenv";
+
+dotenv.config();
+import { updateRouter } from "./routes/updateHook";
+import { getTransaction } from "./routes/getTransaction";
 const app = Express();
 
 app.use(bodyParser.json());
@@ -18,10 +23,14 @@ app.use("/webhook", createWebhook);
 
 app.use("/process", receiveData);
 
+app.use("/update", updateRouter);
+
+app.use("/transaction", getTransaction);
+
 app.use((err, req, res) => {
   console.log("Not found");
 });
 
-app.listen(Number(process.env.PORT), async () => {
+app.listen(Number(process.env.PORT!), async () => {
   console.log("Server listening...");
 });
